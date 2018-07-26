@@ -23,8 +23,8 @@ const versionsApi = new HAPIRestAPI({
     version_number: Joi.number(),
     metadata: Joi.string(),
     nil_return: Joi.boolean()
-  },
-  showSql: true
+  }
+  // showSql: true
 });
 
 module.exports = versionsApi;

@@ -28,8 +28,8 @@ const returnsApi = new HAPIRestAPI({
     status: Joi.string().allow('pending', 'received', 'complete'),
     source: Joi.string(),
     metadata: Joi.string()
-  },
-  showSql: true
+  }
+  // showSql: true
 });
 
 module.exports = returnsApi;

@@ -21,15 +21,15 @@ const linesApi = new HAPIRestAPI({
     line_id: Joi.string(),
     version_id: Joi.string(),
     substance: Joi.string(),
-    quantity: Joi.number(),
+    quantity: Joi.number().allow(null),
     unit: Joi.string(),
     start_date: Joi.string().regex(isoDateRegex),
     end_date: Joi.string().regex(isoDateRegex),
     time_period: Joi.string().allow('day', 'week', 'month', 'year'),
     metadata: Joi.string()
   },
-  showSql: true,
-  maxPayloadBytes: 4194304
+  // showSql: true,
+  maxPayloadBytes: 8388608
 });
 
 module.exports = linesApi;
