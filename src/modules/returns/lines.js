@@ -28,7 +28,8 @@ const linesApi = new HAPIRestAPI({
     time_period: Joi.string().allow('day', 'week', 'month', 'year'),
     metadata: Joi.string()
   },
-  showSql: true
+  showSql: true,
+  maxPayloadBytes: 4194304
 });
 
 module.exports = linesApi;
