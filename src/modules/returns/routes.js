@@ -2,6 +2,7 @@ const returnsApi = require('./returns');
 const versionsApi = require('./versions');
 const linesApi = require('./lines');
 const voidReturnsController = require('./void-returns');
+const deleteReturnsController = require('./delete-returns');
 const Joi = require('joi');
 
 const voidReturns = {
@@ -21,9 +22,24 @@ const voidReturns = {
   }
 };
 
+const deleteReturn = {
+  method: 'DELETE',
+  handler: deleteReturnsController.deleteReturnById,
+  path: '/returns/1.0/return/{returnId}',
+  config: {
+    description: 'Delete a return based on the return identifier',
+    validate: {
+      params: {
+        returnId: Joi.string().required()
+      }
+    }
+  }
+};
+
 module.exports = [
   ...returnsApi.getRoutes(),
   ...versionsApi.getRoutes(),
   ...linesApi.getRoutes(),
-  voidReturns
+  voidReturns,
+  deleteReturn
 ];
